@@ -1,6 +1,6 @@
 package org.japinator;
 
-public class Producto {
+public abstract class Producto {
     private String id;
     private String marca;
     private String modelo;
