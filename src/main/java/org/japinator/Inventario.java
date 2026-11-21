@@ -77,6 +77,7 @@ public class Inventario {
     public boolean estaVacio() {
         return productos.isEmpty();
     }
+
     //ORDENAR PRODUCTOS POR PRECIO
     public List<Producto> ordenarPorPrecio (){
         List<Producto> resultado = obtenerTodos();
