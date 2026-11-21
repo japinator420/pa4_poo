@@ -1,9 +1,6 @@
 package org.japinator;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Inventario {
     private final List<Producto> productos;
@@ -79,5 +76,25 @@ public class Inventario {
 
     public boolean estaVacio() {
         return productos.isEmpty();
+    }
+    //ORDENAR PRODUCTOS POR PRECIO
+    public List<Producto> ordenarPorPrecio (){
+        List<Producto> resultado = obtenerTodos();
+        resultado.sort(
+                Comparator.comparingDouble(Producto::getPrecio)
+        );
+        return resultado;
+    }
+
+    //ORDENAR PRODUCTOS POR MARCA
+    public List<Producto> ordenarPorMarca (){
+        List<Producto> resultado = obtenerTodos();
+        resultado.sort(
+                Comparator.comparing(
+                        Producto::getMarca,
+                        String.CASE_INSENSITIVE_ORDER
+                )
+        );
+        return resultado;
     }
 }
