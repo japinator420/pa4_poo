@@ -20,7 +20,9 @@ public class Main {
                 case 2 -> registrarProducto();
                 case 3 -> modificarProducto();
                 case 4 -> eliminarProducto();
-                case 5 -> {
+                case 5 -> imprimirLista(inventario.ordenarPorPrecio());
+                case 6 -> imprimirLista(inventario.ordenarPorMarca());
+                case 7 -> {
                     System.out.println("Saliendo del sistema PCLAB. ¡Hasta luego!");
                     ejecutando = false;
                 }
@@ -41,7 +43,9 @@ public class Main {
                 2) REGISTRAR PRODUCTO
                 3) MODIFICAR PRODUCTO
                 4) ELIMINAR PRODUCTO
-                5) SALIR
+                5) ORDENAR POR PRECIO
+                6) ORDENAR POR MARCA
+                7) SALIR
                 ----------------------------------------------------
                 """);
     }
@@ -207,6 +211,7 @@ public class Main {
                 yield new CasePC(id, marca, modelo, precio, stock, soporte, color);
             }
             case 6 -> {
+
                 int vatios = leerEntero("Potencia (W): ");
                 String cert = leerTexto("Certificación (80 Plus Bronze, Gold, etc.): ");
                 yield new FuentePoder(id, marca, modelo, precio, stock, vatios, cert);
