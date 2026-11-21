@@ -1,6 +1,7 @@
 package org.japinator;
 
 public class CasePC extends Producto {
+
     private String factorFormaSoporte;
     private String color;
 
