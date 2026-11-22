@@ -135,26 +135,38 @@ public class Main {
         System.out.println("----------------------------------------------------");
     }
 
-    // Hacemos uso de otro metodo de inventario, simplemente solicitamos el tipo/categoria
-    private static void filtrarPorCategoria() {
+    private static Class<? extends Producto> seleccionarCategoria() {
         System.out.println("""
                 Categorías:
                 1) Procesador       2) Motherboard      3) Memoria RAM
                 4) Almacenamiento   5) Case PC          6) Fuente de Poder
                 7) Tarjeta de Video
                 """);
+
         int cat = leerEntero("Selecciona categoría: ");
 
-        switch (cat) {
-            case 1 -> imprimirLista(inventario.filtrarPorTipo(Procesador.class));
-            case 2 -> imprimirLista(inventario.filtrarPorTipo(Motherboard.class));
-            case 3 -> imprimirLista(inventario.filtrarPorTipo(MemoriaRAM.class));
-            case 4 -> imprimirLista(inventario.filtrarPorTipo(Almacenamiento.class));
-            case 5 -> imprimirLista(inventario.filtrarPorTipo(CasePC.class));
-            case 6 -> imprimirLista(inventario.filtrarPorTipo(FuentePoder.class));
-            case 7 -> imprimirLista(inventario.filtrarPorTipo(TarjetaVideo.class));
-            default -> System.out.println("Categoría no válida.");
+        return switch (cat) {
+            case 1 -> Procesador.class;
+            case 2 -> Motherboard.class;
+            case 3 -> MemoriaRAM.class;
+            case 4 -> Almacenamiento.class;
+            case 5 -> CasePC.class;
+            case 6 -> FuentePoder.class;
+            case 7 -> TarjetaVideo.class;
+            default -> null;
+        };
+    }
+
+    // Hacemos uso de otro metodo de inventario, simplemente solicitamos el tipo/categoria
+    private static void filtrarPorCategoria() {
+        Class<? extends Producto> categoria = seleccionarCategoria();
+
+        if (categoria == null) {
+            System.out.println("Categoría no válida.");
+            return;
         }
+
+        imprimirLista(inventario.filtrarPorTipo(categoria));
     }
 
     // Registro de productos, usamos yield para asignar todos los valores al objeto 'Producto nuevo' segun el tipo
@@ -283,6 +295,29 @@ public class Main {
 
     // Eliminamos productos
     private static void eliminarProducto() {
+        if (inventario.estaVacio()) {
+            System.out.println("El inventario está vacío.");
+            return;
+        }
+
+        System.out.println("""
+                --- ELIMINAR PRODUCTOS ---
+                1) Eliminar por ID
+                2) Eliminar productos de una categoría
+                3) Eliminar todos los productos
+                """);
+
+        int subOpcion = leerEntero("Elige una opción: ");
+
+        switch (subOpcion) {
+            case 1 -> eliminarPorId();
+            case 2 -> eliminarPorCategoria();
+            case 3 -> eliminarTodos();
+            default -> System.out.println("Opción no válida.");
+        }
+    }
+
+    private static void eliminarPorId() {
         String id = leerTexto("Ingresa el ID del producto a eliminar: ");
         Producto encontrado = inventario.buscarPorId(id);
 
@@ -301,4 +336,43 @@ public class Main {
         }
     }
 
+    private static void eliminarPorCategoria() {
+        Class<? extends Producto> categoria = seleccionarCategoria();
+
+        if (categoria == null) {
+            System.out.println("Categoría no válida.");
+            return;
+        }
+
+        List<? extends Producto> productosCategoria = inventario.filtrarPorTipo(categoria);
+
+        if (productosCategoria.isEmpty()) {
+            System.out.println("No existen productos en esta categoría.");
+            return;
+        }
+
+        System.out.println("Productos que serán eliminados:");
+        imprimirLista(productosCategoria);
+
+        String confirmacion = leerTexto("¿Eliminar todos los productos de esta categoría? (S/N): ");
+
+        if (confirmacion.equalsIgnoreCase("S")) {
+            int cantidad = inventario.eliminarPorCategoria(categoria);
+            System.out.println("Se eliminaron " + cantidad + " productos de la categoría.");
+        } else {
+            System.out.println("Eliminación cancelada.");
+        }
+    }
+
+    private static void eliminarTodos() {
+        System.out.println("Vas a eliminar todos los productos");
+        String confirmacion = leerTexto("¿Confirmar? (S/N): ");
+
+        if (confirmacion.equalsIgnoreCase("S")) {
+            int cantidad = inventario.eliminarTodos();
+            System.out.println("Se eliminaron " + cantidad + " productos del inventario.");
+        } else {
+            System.out.println("Eliminación cancelada.");
+        }
+    }
 }

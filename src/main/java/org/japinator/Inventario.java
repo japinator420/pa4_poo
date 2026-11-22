@@ -74,6 +74,31 @@ public class Inventario {
         return true;
     }
 
+    public int eliminarPorCategoria(Class<? extends Producto> categoriaClase) {
+        List<Producto> productosAEliminar = new ArrayList<>();
+
+        for (Producto p : productos) {
+            if (categoriaClase.isInstance(p)) {
+                productosAEliminar.add(p);
+            }
+        }
+
+        for (Producto p : productosAEliminar) {
+            eliminarProducto(p.getId());
+        }
+
+        return productosAEliminar.size();
+    }
+
+    public int eliminarTodos() {
+        int cantidad = productos.size();
+
+        productos.clear();
+        indicePorId.clear();
+
+        return cantidad;
+    }
+
     public boolean estaVacio() {
         return productos.isEmpty();
     }
