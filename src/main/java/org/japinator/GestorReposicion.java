@@ -5,22 +5,22 @@ import java.util.*;
 public class GestorReposicion {
 
     public static void mostrarAlertas(Inventario inventario) {
-
+        // Obtenemos una copia de la lista para operar sin alterar el inventario original
         List<Producto> criticos = inventario.obtenerTodos();
-
+       // Uso de removeIf() para filtrar
         criticos.removeIf(p -> p.getStock() > 5);
 
         if (criticos.isEmpty()){
             System.out.println("Todo el inventario tiene stock suficiente");
             return;
         }
-
+    //HashSet para almacenar marcas únicas sin duplicados
         Set<String> marcasPorReponer = new HashSet<>();
-
+//Colección genérica con clase envolvente Integer
         List<Integer> stocksCriticos = new ArrayList<>();
 
         System.out.println("--- ALERTA DE REPOSICION (STOCK <=5) ---");
-
+//Recorrido secuencial usando Iterator
         Iterator<Producto> it = criticos.iterator();
         while (it.hasNext()){
             Producto p = it.next();
@@ -37,6 +37,7 @@ public class GestorReposicion {
         System.out.println("Marcas a contactar (" + marcasPorReponer.size() + "): " + marcasPorReponer);
         System.out.println("Nivel de stock más bajo registrado: " + stockMinimo + " unidades.");
 
+    //Uso de la interfaz Garantizable en los monitores registrados
         System.out.println("--- GARANTÍA DE MONITORES ---");
         for (Monitor m : inventario.filtrarPorTipo(Monitor.class)) {
             System.out.println(m.getMarca() + " " + m.getModelo() + " -> " + m.obtenerDetalleGarantia());
