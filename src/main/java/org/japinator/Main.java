@@ -58,6 +58,7 @@ public class Main {
         inventario.agregarProducto(new CasePC("CASE-01", "NZXT", "H5 Flow", 90.00, 4, "ATX", "Negro"));
         inventario.agregarProducto(new FuentePoder("PSU-01", "Gigabyte", "P550B", 52.00, 7, 550, "80 Plus Bronze"));
         inventario.agregarProducto(new TarjetaVideo("GPU-01", "NVIDIA", "RTX 4060", 310.00, 5, 8, 242));
+        inventario.agregarProducto(new Monitor("MON-01", "LG", "UltraGear 24GN60R", 160.00, 3, 24, 24));
     }
 
     // Metodos para trabajar los input del usuario de forma rapida, ademas de dar estetica.
