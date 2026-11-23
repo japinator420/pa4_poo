@@ -19,7 +19,7 @@ public class GestorReposicion {
 
         List<Integer> stocksCriticos = new ArrayList<>();
 
-        System.out.println(" ALERTA DE REPOSICION (STOCK <=5) ");
+        System.out.println("--- ALERTA DE REPOSICION (STOCK <=5) ---");
 
         Iterator<Producto> it = criticos.iterator();
         while (it.hasNext()){

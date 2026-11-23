@@ -22,7 +22,8 @@ public class Main {
                 case 4 -> eliminarProducto();
                 case 5 -> imprimirLista(inventario.ordenarPorPrecio());
                 case 6 -> imprimirLista(inventario.ordenarPorMarca());
-                case 7 -> {
+                case 7 -> GestorReposicion.mostrarAlertas(inventario);
+                case 8 -> {
                     System.out.println("Saliendo del sistema PCLAB. ¡Hasta luego!");
                     ejecutando = false;
                 }
@@ -142,7 +143,7 @@ public class Main {
                 Categorías:
                 1) Procesador       2) Motherboard      3) Memoria RAM
                 4) Almacenamiento   5) Case PC          6) Fuente de Poder
-                7) Tarjeta de Video
+                7) Tarjeta de Video 8) Monitor
                 """);
 
         int cat = leerEntero("Selecciona categoría: ");
@@ -155,6 +156,7 @@ public class Main {
             case 5 -> CasePC.class;
             case 6 -> FuentePoder.class;
             case 7 -> TarjetaVideo.class;
+            case 8 -> Monitor.class;
             default -> null;
         };
     }
@@ -177,11 +179,11 @@ public class Main {
                 --- REGISTRAR PRODUCTO ---
                 1) Procesador       2) Motherboard      3) Memoria RAM
                 4) Almacenamiento   5) Case PC          6) Fuente de Poder
-                7) Tarjeta de Video
+                7) Tarjeta de Video 8)Monitor
                 """);
         int tipo = leerEntero("Tipo de componente: ");
 
-        if (tipo < 1 || tipo > 7) {
+        if (tipo < 1 || tipo > 8) {
             System.out.println("Tipo no válido.");
             return;
         }
@@ -234,6 +236,11 @@ public class Main {
                 int vram = leerEntero("VRAM (GB): ");
                 int longitud = leerEntero("Longitud (mm): ");
                 yield new TarjetaVideo(id, marca, modelo, precio, stock, vram, longitud);
+            }
+            case 8 -> {
+                int pulgadas = leerEntero("Tamaño (pulgadas): ");
+                int mesesGarantia = leerEntero("Garantía (meses): ");
+                yield new Monitor(id, marca, modelo, precio, stock, pulgadas, mesesGarantia);
             }
             default -> null;
         };
