@@ -45,7 +45,8 @@ public class Main {
                 4) ELIMINAR PRODUCTO
                 5) ORDENAR POR PRECIO
                 6) ORDENAR POR MARCA
-                7) SALIR
+                7) ALERTAS DE REPOSICIÓN Y GARANTÍAS
+                8) SALIR
                 ----------------------------------------------------
                 """);
     }
