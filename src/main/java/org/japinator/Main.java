@@ -24,9 +24,12 @@ public class Main {
                 case 6 -> imprimirLista(inventario.ordenarPorMarca());
                 case 7 -> GestorReposicion.mostrarAlertas(inventario);
                 case 8 -> {
+
                     System.out.println("Saliendo del sistema PCLAB. ¡Hasta luego!");
                     ejecutando = false;
                 }
+                // APORTE INDIVIDUAL - Andreu Rangel
+                case 9 -> ReporteInventario.mostrarReporte(inventario);
                 default -> System.out.println("Opción no válida. Intenta de nuevo.");
             }
         }
@@ -48,6 +51,7 @@ public class Main {
                 6) ORDENAR POR MARCA
                 7) ALERTAS DE REPOSICIÓN Y GARANTÍAS
                 8) SALIR
+                9) REPORTE GENERAL DE INVENTARIO
                 ----------------------------------------------------
                 """);
     }
