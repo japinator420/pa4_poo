@@ -205,10 +205,6 @@ Se conservaron las funcionalidades existentes del equipo.
 | Generación automática del reporte | Comprobada |
 | Retorno al menú y salida mediante opción 8 | Comprobada |
 | Suma de valores por categoría | Comprobada |
-| Verificación individual de precios y cantidades | Pendiente |
-| Entrada manual en consola | Pendiente de verificar |
-| Pruebas de registro, modificación y eliminación | Pendientes de documentar |
-| Pruebas de ordenamiento y alertas | Pendientes de documentar |
 
 ## 13. Evidencias del proyecto
 
