@@ -162,11 +162,11 @@ Con el proyecto compilado y las clases disponibles en target/classes, ejecutar d
 
 | Integrante | Porcentaje de participación |
 |---|---|
-| Ariana Tiparra Reyes | |
-| Amir Álvarez Álvarez | |
-| Andreu Antonio Rangel | |
-| Diana Cueva Cerna | |
-| Fátima Gallardo Ramírez | |
+| Ariana Tiparra Reyes |100%|
+| Amir Álvarez Álvarez |100% |
+| Andreu Antonio Rangel |100% |
+| Diana Cueva Cerna |100% |
+| Fátima Gallardo Ramírez |100% |
 
 ## 11. Distribución de responsabilidades y aportes individuales
 
