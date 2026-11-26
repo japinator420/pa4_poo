@@ -163,7 +163,7 @@ Con el proyecto compilado y las clases disponibles en target/classes, ejecutar d
 | Integrante | Porcentaje de participación |
 |---|---|
 | Ariana Tiparra Reyes |100%|
-| Amir Álvarez Álvarez |100% |
+| Amir Alvarez Alvarez |100% |
 | Andreu Antonio Rangel |100% |
 | Diana Cueva Cerna |100% |
 | Fátima Gallardo Ramírez |100% |
@@ -174,7 +174,7 @@ Con el proyecto compilado y las clases disponibles en target/classes, ejecutar d
 
 **Aporte:**  Producto: se agregó abstract a la clase. Inventario: se agregaron los métodos para ordenar por precio y marca.
 
-### Amir Álvarez Álvarez
+### Amir Alvarez Alvarez
 
 **Aporte:** Creación de clase Producto e hijos (componentes de PC), Creación de clase Inventario y métodos para mostrar, agregar, actualizar y eliminar productos. Creación del menú persistente, funcionamiento y métodos de control para el input de datos.
 
@@ -217,7 +217,7 @@ Espacio reservado para incorporar las capturas de pantalla:
 
 ## 14. Video de exposición
 
-**Enlace del video:**
+**Enlace del video: https://youtu.be/EHlN57b03Dw**
 
 Contenido sugerido: presentación del proyecto, objetivos, tecnologías, estructura de clases, demostración del menú, reporte general y aportes individuales.
 
