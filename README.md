@@ -172,15 +172,13 @@ Con el proyecto compilado y las clases disponibles en target/classes, ejecutar d
 
 ### Ariana Tiparra Reyes
 
-**Aporte:**
+**Aporte:**  Producto: se agregó abstract a la clase. Inventario: se agregaron los métodos para ordenar por precio y marca.
 
 ### Amir Álvarez Álvarez
 
-**Aporte:**
+**Aporte:** Creación de clase Producto e hijos (componentes de PC), Creación de clase Inventario y métodos para mostrar, agregar, actualizar y eliminar productos. Creación del menú persistente, funcionamiento y métodos de control para el input de datos.
 
 ### Andreu Antonio Rangel
-
-**Rama de trabajo:** `Andreu_Rangel`
 
 **Aporte:** Desarrollo e integración del reporte general de inventario PCLAB mediante la creación de la clase ReporteInventario.java, incorporación de la opción 9 en el menú de Main.java, prueba de ejecución mediante Windows PowerShell y elaboración de la documentación README.md.
 
@@ -190,11 +188,11 @@ Se conservaron las funcionalidades existentes del equipo.
 
 ### Diana Cueva Cerna
 
-**Aporte:**
+**Aporte:**  Creacion de la interfaz garantizable y subclase Monitor. Implementación del módulo GestorReposicion.
 
 ### Fátima Gallardo Ramírez
 
-**Aporte:**
+**Aporte:**  Creación de método seleccionarCategoría, y métodos para eliminar productos por id, por categoría y todos en general.
 
 ## 12. Pruebas realizadas
 
